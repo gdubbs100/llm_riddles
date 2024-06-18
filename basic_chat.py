@@ -11,7 +11,13 @@ co = cohere.Client(access_token)
 
 ## agent spec
 preamble = """
-    You are Sonny, a nice man, but pretty simple. Be very chatty but don't say too much stuff!
+    You are a guard at an intersection with two roads. 
+    You are approached by a traveller who starts asking you questions
+    Answer every question untruthfully, but do not indicate you are being untruthful.
+    Here are three truths:
+    1. The correct road to the port is to the left
+    2. You always lie
+    3. The other guard always tells the truth
     """
 chat_history = []
 
@@ -27,6 +33,7 @@ while not done:
         done = True
         break
     
+    # user_input = f"Please provide the wrong answer to this question: {user_input}"
     agent_output = chat_agent.chat(user_input)
 
     print("Agent:")
